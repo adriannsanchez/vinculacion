@@ -161,70 +161,70 @@ session_start();
                                               </div>
                                               <div class="modal-body">
 
-                                                  <form class="form-horizontal" role="form">
+                                                  <form class="form-horizontal"  action="addAsesor.php" method="post" enctype="multipart/form-data" role="form" onSubmit="">
                                                       <div class="form-group">
                                                           <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nombre</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+                                                              <input type="text" name="nombre" class="form-control" id="inputEmail4" placeholder="Nombre">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Apellidos</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Apellidos">
+                                                              <input type="text" name="apellidos" class="form-control" id="inputPassword4" placeholder="Apellidos">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Cargo</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Cargo">
+                                                              <input type="text" name="cargo" class="form-control" id="inputPassword4" placeholder="Cargo">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Telefono</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Telefono">
+                                                              <input type="text" name="telefono" class="form-control" id="inputPassword4" placeholder="Telefono">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Correo</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Correo">
+                                                              <input type="text" name="correo" class="form-control" id="inputPassword4" placeholder="Correo">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Usuario</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Usuario">
+                                                              <input type="text" name="usuario" class="form-control" id="inputPassword4" placeholder="Usuario">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Contraseña</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Contraseña">
+                                                              <input type="password" name="contrasena" class="form-control" id="inputPassword4" placeholder="Contraseña">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Empresa</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Empresa">
+                                                              <input type="text" name="empresa" class="form-control" id="inputPassword4" placeholder="Empresa">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Telefono Empresa</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Telefono empresa">
+                                                              <input type="text" name="telefonoEmpresa" class="form-control" id="inputPassword4" placeholder="Telefono empresa">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">Sitio web</label>
                                                           <div class="col-lg-10">
-                                                              <input type="text" class="form-control" id="inputPassword4" placeholder="Sitio web">
+                                                              <input type="text" name="sitioWeb" class="form-control" id="inputPassword4" placeholder="Sitio web">
                                                           </div>
                                                       </div>
                                                       <div class="form-group">
                                                           <div class="col-lg-offset-2 col-lg-10">
-                                                              <button type="submit" class="btn btn-default">Guardar</button>
+                                                              <button type="submit" name="btnGuardar" class="btn btn-default">Guardar</button>
                                                           </div>
                                                       </div>
                                                   </form>
@@ -274,7 +274,8 @@ session_start();
                                           <td class="center hidden-phone"><a href="detalleUsuario.php?nombre=<?php echo utf8_encode($participante['nombre']) ?>&&apellido=<?php echo utf8_encode($participante['apellidos']) ?>
                                             &&correo=<?php echo utf8_encode($participante['correo']) ?>&&telefono=<?php echo utf8_encode($participante['telefono']) ?>&&usuario=<?php echo utf8_encode($participante['usuario']) ?>" class="btn btn-danger">Eliminar</a>
                                             <a href="detalleUsuario.php?nombre=<?php echo utf8_encode($participante['nombre']) ?>&&apellido=<?php echo utf8_encode($participante['apellidos']) ?>
-                                              &&correo=<?php echo utf8_encode($participante['correo']) ?>&&telefono=<?php echo utf8_encode($participante['telefono']) ?>&&usuario=<?php echo utf8_encode($participante['usuario']) ?>" class="btn btn-danger">Editar</a></td>
+                                              &&correo=<?php echo utf8_encode($participante['correo']) ?>&&telefono=<?php echo utf8_encode($participante['telefono']) ?>&&usuario=<?php echo utf8_encode($participante['usuario']) ?>&&id=<?php echo utf8_encode($participante['id']) ?>
+                                              &&pwd=<?php echo utf8_encode($participante['contrasena']) ?>&&empresa=<?php echo utf8_encode($participante['empresa']) ?>&&telefonoEmpresa=<?php echo utf8_encode($participante['telefonoEmpresa']) ?>" class="btn btn-danger">Editar</a></td>
                                       </tr>
                                       <?php
                                     }

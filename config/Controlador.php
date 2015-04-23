@@ -295,11 +295,11 @@ function recuperaruta($id){
        $update=$obj->actualizar("participantes", "pago_estado='pagado'", "where idparticipante=$id");
        return $update;
    }
-   function actualizarUsuario($nombre,$apellidos,$correo,$telefono,$usuario){
-     $obj = new Modelo;
-     $update=$obj->actualizar("usuarios", "nombre=$nombre AND apellidos=$apellidos AND correo=$correo AND telefono=$telefono", "where usuario=$usuario");
-     return $update;
-   }
+  //  function actualizarUsuario($nombre,$apellidos,$correo,$telefono,$usuario){
+  //    $obj = new Modelo;
+  //    $update=$obj->actualizar("usuarios", "nombre='$nombre' AND apellidos='$apellidos' AND correo='$correo' AND telefono='$telefono'", "where usuario=$usuario");
+  //    return $update;
+  //  }
    function guardafactura($nombre,$direccion,$rfc,$id){
     $obj = new Modelo;
     $obj->insertar("facturas", "","0,'$nombre','$direccion','$rfc',$id");
