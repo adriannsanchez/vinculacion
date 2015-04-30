@@ -14,7 +14,7 @@ require_once("../../config/Controlador.php");
        session_start();
 	$_SESSION['usuario'] = $usuario;
      echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; url=inicio.php\">";
-     header("Location: dash.php");
+     header("Location: board.php");
       }
 
      if($user['tipo'] == "alumno"){

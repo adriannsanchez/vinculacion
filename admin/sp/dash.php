@@ -35,6 +35,22 @@ session_start();
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        function RellenarDIV() {
+            var Ajax        = new XMLHttpRequest();
+            var DIV_Destino = document.getElementById("main-content");
+            // $("#myDiv").empty();
+            // $("#myDiv").load("sidebar-light.html");
+            Ajax.open("GET", "login.php", true);
+                // true = asincronico, no espera a que finalice
+            Ajax.onreadystatechange = function() {
+                if(Ajax.readyState==4 && Ajax.status==200) {
+                    DIV_Destino.innerHTML = Ajax.responseText;
+                }
+            }
+            Ajax.send();
+        }
+    </script>
   </head>
 
   <body>
@@ -82,11 +98,14 @@ session_start();
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="index.html">
+                      <a class="active" onclick="RellenarDIV()" href="#">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
+                  <li>
+                  <input type="button" value="Rellenar abajo" onclick="RellenarDIV()">
+                </li>
                   <li>
                       <a  href="listaUsuarios.php">
                           <i class="fa fa-users"></i>

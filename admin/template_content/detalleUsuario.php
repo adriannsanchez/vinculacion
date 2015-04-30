@@ -1,4 +1,12 @@
+<?php
 
+include_once '../../config/Controlador.php';
+session_start();
+  // $user=$_POST["nombre"];
+  // $nombre=$_SESSION['nombre'];
+  $usuario=$_SESSION['id'];
+  $tipo=$_SESSION['tipo'];
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,7 +66,8 @@
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                           <img alt="" src="img/avatar1_small.jpg">
-                          <span class="username">Jhon Doue</span>
+                          <span class="username"><?php $miUsuario=Elusuario($_SESSION['usuario']);
+            echo utf8_encode($miUsuario['nombre']); echo " "; echo utf8_encode($miUsuario['apellidos']);?></span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
@@ -144,13 +153,13 @@
                             Información General
                           </header>
                           <div class="panel-body">
-                              <form class="form-horizontal"  action="add.php" method="post" enctype="multipart/form-data" role="form" onSubmit="">
+                              <form class="form-horizontal"  action="modificarAsesor.php" method="post" enctype="multipart/form-data" role="form" onSubmit="">
                                   <div class="form-group">
                                       <label  class="col-lg-3 col-sm-3 control-label">Nombre:</label>
                                       <div class="col-lg-9">
                                           <div class="iconic-input">
                                               <i class="fa fa-bullhorn"></i>
-                                              <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="<?php echo $_GET['nombre']; ?>">
+                                              <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="<?php echo $_GET['nombre']; ?>" required>
                                           </div>
                                       </div>
                                   </div>
@@ -159,7 +168,25 @@
                                       <div class="col-lg-9">
                                           <div class="iconic-input">
                                               <i class="fa fa-bullhorn"></i>
-                                              <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" value="<?php echo $_GET['apellido']; ?>">
+                                              <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" value="<?php echo $_GET['apellido']; ?>" required>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label  class="col-lg-3 col-sm-3 control-label">Usuario:</label>
+                                      <div class="col-lg-9">
+                                          <div class="iconic-input">
+                                              <i class="fa fa-bullhorn"></i>
+                                              <input type="text" class="form-control" name="usuario" placeholder="Usuario" value="<?php echo $_GET['usuario']; ?>" required>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label  class="col-lg-3 col-sm-3 control-label">Password:</label>
+                                      <div class="col-lg-9">
+                                          <div class="iconic-input">
+                                              <i class="fa fa-bullhorn"></i>
+                                              <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" value="<?php echo $_GET['pwd']; ?>" required>
                                           </div>
                                       </div>
                                   </div>
@@ -168,7 +195,7 @@
                                       <div class="col-lg-9">
                                           <div class="iconic-input">
                                               <i class="fa fa-bullhorn"></i>
-                                              <input type="text" class="form-control" name="correo" placeholder="Correo" value="<?php echo $_GET['correo']; ?>">
+                                              <input type="email" class="form-control" name="correo" placeholder="Correo" value="<?php echo $_GET['correo']; ?>" required>
                                           </div>
                                       </div>
                                   </div>
@@ -177,11 +204,36 @@
                                       <div class="col-lg-9">
                                           <div class="iconic-input">
                                               <i class="fa fa-bullhorn"></i>
-                                              <input type="text" class="form-control" name="telefono" placeholder="Telefono" value="<?php echo $_GET['telefono']; ?>">
+                                              <input type="text" class="form-control" name="telefono" placeholder="Telefono" value="<?php echo $_GET['telefono']; ?>" required>
+                                              <input type="hidden" class="form-control" name="id" placeholder="Telefono" value="<?php echo $_GET['id']; ?>">
+
                                           </div>
+
                                       </div>
                                   </div>
-                                  <input type="submit" class="btn btn-primary" name="btnActualizar"/>
+                                  <div class="form-group">
+                                      <label  class="col-lg-3 col-sm-3 control-label">Empresa:</label>
+                                      <div class="col-lg-9">
+                                          <div class="iconic-input">
+                                              <i class="fa fa-bullhorn"></i>
+                                              <input type="text" class="form-control" name="empresa" placeholder="Empresa" value="<?php echo $_GET['empresa']; ?>" required>
+
+                                          </div>
+
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label  class="col-lg-3 col-sm-3 control-label">Telefono Empresa:</label>
+                                      <div class="col-lg-9">
+                                          <div class="iconic-input">
+                                              <i class="fa fa-bullhorn"></i>
+                                              <input type="text" class="form-control" name="telefonoEmpresa" placeholder="Telefono Empresa" value="<?php echo $_GET['telefonoEmpresa']; ?>" required>
+
+                                          </div>
+
+                                      </div>
+                                  </div>
+                                  <input type="submit" class="btn btn-primary" name="btnGuardar"/>
 
                               </form>
                           </div>
